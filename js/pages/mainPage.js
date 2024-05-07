@@ -10,6 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector("header");
     const howOrderPopup = document.querySelector(".how-order-popup");
 
+    window.addEventListener("scroll", () => {
+      if (scrollY >= 80) {
+        header.classList.add("after-scroll");
+      } else {
+        header.classList.remove("after-scroll");
+      }
+    });
+
     searchInput.addEventListener("input", () => {
       if (searchInput.value == "") {
         clearSearch.style.transform = "translateX(50px)";
