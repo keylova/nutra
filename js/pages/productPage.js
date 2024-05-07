@@ -136,11 +136,11 @@ document.addEventListener("DOMContentLoaded", () => {
         item.getAttribute("data-item-rating") < "20%"
       ) {
         item.innerHTML = `
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating-empty.svg" alt="">
-      <img src="/img/rating-empty.svg" alt="">
-      <img src="/img/rating-empty.svg" alt="">
-      <img src="/img/rating-empty.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating-empty.svg" alt="">
+      <img src="./img/rating-empty.svg" alt="">
+      <img src="./img/rating-empty.svg" alt="">
+      <img src="./img/rating-empty.svg" alt="">
       `;
       }
       if (
@@ -148,11 +148,11 @@ document.addEventListener("DOMContentLoaded", () => {
         item.getAttribute("data-item-rating") < "40%"
       ) {
         item.innerHTML = `
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating-empty.svg" alt="">
-      <img src="/img/rating-empty.svg" alt="">
-      <img src="/img/rating-empty.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating-empty.svg" alt="">
+      <img src="./img/rating-empty.svg" alt="">
+      <img src="./img/rating-empty.svg" alt="">
       `;
       }
       if (
@@ -160,11 +160,11 @@ document.addEventListener("DOMContentLoaded", () => {
         item.getAttribute("data-item-rating") < "60%"
       ) {
         item.innerHTML = `
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating-empty.svg" alt="">
-      <img src="/img/rating-empty.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating-empty.svg" alt="">
+      <img src="./img/rating-empty.svg" alt="">
       `;
       }
       if (
@@ -172,20 +172,20 @@ document.addEventListener("DOMContentLoaded", () => {
         item.getAttribute("data-item-rating") < "80%"
       ) {
         item.innerHTML = `
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating-empty.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating-empty.svg" alt="">
       `;
       }
       if (item.getAttribute("data-item-rating") >= "80%") {
         item.innerHTML = `
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating.svg" alt="">
-      <img src="/img/rating.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating.svg" alt="">
+      <img src="./img/rating.svg" alt="">
       `;
       }
     }
