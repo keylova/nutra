@@ -1,0 +1,1014 @@
+@import "fonts"
+
+$text-color: #21201F
+
+*
+  font-family: "OpenSans"
+
+a
+  text-decoration: none
+  color: $text-color
+
+body
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: "OpenSans"
+  font-weight: normal
+  background: rgb(245, 244, 242)
+  color: #21201F
+  display: flex
+  flex-direction: column
+  position: relative
+
+h1,h2,h3,h4,h5,h6,p
+  margin: 0
+
+body
+
+  .overlay
+    width: 100%
+    height: 100%
+    background: #00000091
+    position: absolute
+    z-index: 4
+    visibility: hidden
+
+  .city-popup
+    transition: all .3s
+    width: 450px
+    height: 500px
+    background: white
+    top: 100px
+    left: 50%
+    transform: translateX(-50%)
+    transform-origin: left
+    overflow: hidden
+    border-radius: 15px
+    z-index: 5
+    position: fixed
+    padding: 20px
+    scale: 0
+
+    #search-city-input
+      background: rgba(92,90,87,0.1)
+      border: none
+      border-radius: 15px
+      height: 50px
+      outline: none
+      font-size: 16px
+      width: calc( 100% - 40px )
+      padding: 0 20px
+
+    .city-result
+      height: 100%
+      ul
+        list-style-type: none
+        margin: 20px 0 0 0
+        padding: 0
+        display: flex
+        flex-direction: column
+        height: 85%
+        gap: 10px
+        overflow-y: scroll
+        &::-webkit-scrollbar
+          background: #e8e8e8
+          width: 10px
+          border-radius: 15px
+          overflow: hidden
+        &::-webkit-scrollbar-button
+          // background: red
+        &::-webkit-scrollbar-thumb
+          background: #ababab
+          border-radius: 15px
+
+        li
+          display: flex
+          align-items: center
+          gap: 10px
+          padding: 10px
+          border-radius: 15px
+          cursor: pointer
+          margin-right: 5px
+          &:hover
+            background: #e8e8e8
+          &:active
+            background: #d9d9d9
+
+          svg
+            height: 20px
+
+  header
+    border-bottom: 1px solid #c0c0c0
+    position: fixed
+    top: 0
+    background: rgb(245, 244, 242)
+    z-index: 3
+    width: 100%
+
+    .navigation
+      margin-left: 50px
+      ul
+        list-style: none
+        margin: 0
+        padding: 0
+        display: flex
+        gap: 20px
+        text-transform: none
+        font-weight: normal
+        font-size: 18px
+        li
+          a
+            text-decoration: none
+            color: $text-color
+            &:hover
+              color: #728bb4
+
+    &.after-scroll
+      border: none
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 20px
+
+    .header
+      padding: 25px 20px
+      height: 30px
+      margin: 0 auto
+      display: flex
+      max-width: 1600px
+      align-items: center
+      gap: 20px
+      .logo
+        min-width: 250px
+        display: flex
+        align-items: center
+        height: 80%
+
+      .search
+        display: flex
+        align-items: center
+        height: 35px
+        width: 300px
+        padding: 5px
+        border: 2px solid #c0c0c0
+        border-radius: 15px
+        background: white
+        position: relative
+
+        .search-overflow
+          display: flex
+          position: relative
+          align-items: center
+          height: 35px
+          width: 100%
+          gap: 10px
+          padding: 5px
+          border-radius: 15px
+          justify-content: space-between
+          overflow: hidden
+
+        .search-icon
+          height: 100%
+          display: flex
+          align-items: center
+          padding-left: 10px
+
+          svg
+            height: 22px
+        input
+          border: none
+          height: 100%
+          width: 100%
+          font-size: 16px
+          color: #21201F
+          &:focus
+            outline: none
+            border: none
+
+        .clear-search
+          height: 100%
+          padding-right: 10px
+          display: flex
+          align-items: center
+          position: absolute
+          right: 0
+          cursor: pointer
+          transition: all .2s
+          transform: translateX(50px)
+          &:hover
+            #clear-search
+              transition: all .1s
+              fill: #5c5c5c
+          svg
+            height: 22px
+
+        #search-popup
+          position: absolute
+          left: 0
+          display: flex
+          width: 450px
+          height: 300px
+          background: white
+          position: absolute
+          top: 60px
+          border-radius: 15px
+          box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12)
+          display: none
+          ul
+            list-style: none
+            margin: 0
+            padding: 0
+            width: 100%
+            overflow-y: scroll
+            display: flex
+            flex-direction: column
+            &::-webkit-scrollbar
+              background: #e8e8e8
+              width: 10px
+              border-radius: 15px
+              overflow: hidden
+            &::-webkit-scrollbar-button
+              // background: red
+            &::-webkit-scrollbar-thumb
+              background: #ababab
+              border-radius: 15px
+            li
+              padding: 15px 10px
+              display: flex
+              font-size: 15px
+              gap: 10px
+              cursor: pointer
+              &:hover
+                background: #e8e8e8
+              &:active
+                background: #d9d9d9
+
+      .location
+        display: flex
+        align-items: center
+        height: 35px
+        gap: 10px
+        padding: 5px 15px
+        border: 2px solid #c0c0c0
+        border-radius: 15px
+        overflow: hidden
+        cursor: pointer
+        transition: all .2s
+        font-weight: bold
+        color: $text-color
+        &:hover
+          background: #e8e8e8
+        &:active
+          background: #d9d9d9
+
+        .location-icon
+          display: flex
+          align-items: center
+          justify-content: center
+          svg
+            height: 22px
+
+        .arrow
+          display: flex
+          align-items: center
+          svg
+            height: 22px
+
+  main
+    display: flex
+    margin: 120px auto 0 auto
+    gap: 20px
+    max-width: 1600px
+    @media screen and ( max-width: 1680px )
+      margin: 120px 40px 0 40px
+
+    .content
+      .breadcrumbs
+        color: #a6a6a6
+
+        ul
+          margin: 0 0 20px 0
+          padding: 0
+          list-style: none
+          display: flex
+          gap: 10px
+          li
+            a
+              text-decoration: none
+              color: #a6a6a6
+              &:hover
+                color: #777777
+
+    .leftbar
+      min-width: 250px
+      max-width: 250px
+      .info
+        height: 80px
+        background: white
+        border-radius: 15px
+        overflow: hidden
+        display: flex
+        flex-direction: row
+        text-transform: uppercase
+        font-size: 14px
+        img
+          width: 80px
+          height: 80px
+        .job-time
+          display: flex
+          flex-direction: column
+          justify-content: center
+      .catalog
+        display: flex
+        flex-direction: column
+        margin-top: 25px
+        font-size: 22px
+        font-weight: bold
+        ul
+          list-style: none
+          margin: 20px 0 0 0
+          padding: 0
+          display: flex
+          font-size: 16px
+          flex-direction: column
+          width: 100%
+          font-weight: normal
+          li
+            width: 100%
+            a
+              padding: 5px 15px
+              height: 45px
+              border-radius: 15px
+              display: flex
+              align-items: center
+              gap: 15px
+              cursor: pointer
+              color: $text-color
+              text-decoration: none
+              &:hover
+                background: #e8e8e8
+                img
+                  width: 15px
+              &:active
+                background: #d9d9d9
+
+              img
+                width: 10px
+                transition: all .3s
+
+    .content
+      width: 100%
+      h1
+        font-size: 32px
+
+      .items
+        margin-top: 20px
+        display: grid
+        grid-template-columns: repeat(auto-fill , minmax(210px, auto))
+        gap: 10px
+
+        .card
+          cursor: pointer
+          padding: 5px
+          background: white
+          display: flex
+          flex-direction: column
+          overflow: hidden
+          border-radius: 20px
+          img
+            z-index: 1
+            width: 100%
+            height: 150px
+            object-fit: contain
+            transition: all .2s
+          &:hover
+            img
+              scale: 1.1
+          .card-info
+            padding: 10px
+            z-index: 2
+            .price
+              display: flex
+              align-items: baseline
+              gap: 10px
+              width: 210px
+              .actual-price
+                font-size: 25px
+              .old-price
+                font-size: 20px
+                color: #585858
+                text-decoration: line-through
+            .title
+              margin-top: 5px
+              text-overflow: ellipsis
+              overflow: hidden
+              width: 210px
+              font-size: 18px
+            .description
+              overflow: hidden
+              margin-top: 5px
+              width: 210px
+              height: 46px
+              text-overflow: ellipsis
+              -webkit-line-clamp: 2
+              text
+                height: 39px
+                font-size: 14px
+      .adventages
+        display: flex
+        gap: 30px
+        margin-top: 50px
+        flex-direction: column
+        h3
+          font-size: 30px
+        .adventage
+          display: flex
+          justify-content: start
+          font-size: 22px
+          font-weight: normal
+          align-items: center
+          font-size: 22px
+          text-align: left
+          gap: 20px
+          border-radius: 15px
+          overflow: hidden
+          font-weight: bold
+          color: $text-color
+          .subtitle
+            font-weight: normal
+            font-size: 16px
+            text-transform: none
+            margin-top: 10px
+
+          img
+            height: 100px
+    .rightbar
+      min-width: 250px
+      max-width: 250px
+      display: flex
+      flex-direction: column
+      gap: 20px
+
+      .rightbar-wrapper
+        display: flex
+        flex-direction: column
+        gap: 20px
+        position: sticky
+        top: 100px
+
+        .how-order
+          display: flex
+          align-items: center
+          justify-content: center
+          height: 80px
+          box-shadow: 0px 5px 10px #d8d8d8
+          text-transform: uppercase
+          background: white
+          gap: 10px
+          border-radius: 15px
+          overflow: hidden
+          cursor: pointer
+          transition: all .2s linear
+          font-weight: bold
+          color: $text-color
+          &:hover
+            box-shadow: 0px 10px 10px #b8b8b8
+          &:active
+            box-shadow: 0px 10px 10px #b8b8b8 inset
+          img
+            height: 50px
+
+        .barcode
+          display: flex
+          align-items: center
+          text-align: center
+          padding: 20px 20px
+          position: relative
+          justify-content: center
+          text-transform: uppercase
+          background: white
+          gap: 10px
+          flex-direction: column
+          border-radius: 15px
+          overflow: hidden
+          font-weight: bold
+          color: $text-color
+          &:hover
+          img
+            height: 63px
+          svg
+            position: absolute
+            top: 12px
+            left: 45px
+            height: 80px
+            filter: blur(2px)
+            z-index: 2
+            animation: redline 3.5s infinite linear
+            @keyframes redline
+              0%
+                left: 45px
+              50%
+                left: 200px
+              100%
+                left: 45px
+
+          input
+            background: rgba(92,90,87,0.1)
+            border: none
+            border-radius: 15px
+            height: 50px
+            outline: none
+            font-size: 18px
+            text-align: center
+            width: 100%
+
+          p.description
+            font-size: 14px
+            text-transform: none
+            font-weight: normal
+
+          .second-btn
+            background: rgba(255, 255, 255, 0.1)
+            border-radius: 15px
+            height: 50px
+            border: none
+            box-shadow: 0px 5px 10px #d8d8d8
+            outline: none
+            font-size: 16px
+            cursor: pointer
+            text-align: center
+            width: 100%
+            &:hover
+              background: #e8e8e8
+            &:active
+              background: #d9d9d9
+
+  footer
+    margin-top: 50px
+    display: flex
+    padding: 50px 20px
+    background: rgb(249, 249, 249)
+    .leftside
+      min-width: 250px
+      max-width: 250px
+    .center
+      width: 100%
+      display: flex
+      gap: 50px
+      justify-content: space-between
+      .categories
+        font-weight: bold
+        ul
+          width: 400px
+          list-style: none
+          margin: 20px 0 0 0
+          display: flex
+          flex-wrap: wrap
+          gap: 20px
+          height: 300px
+          font-weight: normal
+          flex-direction: column
+          padding: 0
+          li
+            text-overflow: ellipsis
+            a
+              color: #9d9d9d
+              text-decoration: none
+              &:hover
+                color: #717171
+      .footer-info
+        display: flex
+        flex-direction: column
+        gap: 20px
+        &__text
+          margin-top: -5px
+          display: flex
+          flex-direction: column
+          gap: 20px
+          align-items: baseline
+          a
+            color: #456dba
+            text-decoration: none
+            &:hover
+              color: #244071
+    .rightside
+      min-width: 250px
+      max-width: 250px
+
+    a
+      img
+        width: 100px
+
+#product
+  display: flex
+  margin-top: 20px
+  gap: 20px
+  .leftside
+    display: flex
+    align-items: center
+    background: white
+    border-radius: 15px
+    width: 100%
+    justify-content: center
+    img
+      border-radius: 15px
+      object-fit: contain
+      width: 300px
+  .product__short-info
+    padding: 20px
+    width: 100%
+    background: white
+    border-radius: 15px
+    display: flex
+    justify-content: space-between
+    .product-info
+      display: flex
+      flex-direction: column
+      gap: 20px
+      width: 100%
+      color: #636363
+      .availability
+        display: flex
+        align-items: center
+        gap: 10px
+        img
+          width: 20px
+      .price-wrapper
+        display: flex
+        gap: 10px
+        align-items: baseline
+        .price
+          font-size: 30px
+          font-weight: bold
+          color: $text-color
+        .oldprice
+          font-size: 18px
+          text-decoration: line-through
+      .rating
+        display: flex
+        align-items: center
+        gap: 10px
+        font-weight: bold
+      button
+        border: none
+        margin-top: 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        font-size: 16px
+        border-radius: 15px
+        color: white
+        text-transform: uppercase
+        font-weight: bold
+        background: #53c38b
+        height: 50px
+        &:hover
+          background: #54a27c
+        &:active
+          box-shadow: 0px 10px 10px #00000042 inset
+          background: #54a27c
+
+  .order
+    width: 100%
+    h2
+      text-align: center
+      width: 100%
+
+    form
+      display: flex
+      margin-top: 20px
+      flex-direction: column
+      width: 100%
+      gap: 10px
+      input
+        display: flex
+        align-items: center
+        height: 35px
+        padding: 5px
+        font-size: 16px
+        text-align: center
+        border: 2px solid #c0c0c0
+        border-radius: 15px
+        background: white
+        outline: none
+        &:focus
+          border: 2px solid #626262
+
+      button
+        border: none
+        margin-top: 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        font-size: 16px
+        border-radius: 15px
+        color: white
+        text-transform: uppercase
+        font-weight: bold
+        background: #53c38b
+        height: 50px
+        &:hover
+          background: #54a27c
+
+.product_info
+  h4
+    margin-top: 20px
+    font-size: 26px
+
+  .product-info_wrapper
+    display: flex
+    margin-top: 20px
+    gap: 20px
+
+    .product-info_list
+      font-size: 15px
+      display: flex
+      background: white
+      flex-direction: column
+      width: 50%
+      height: 100%
+      border-radius: 5px
+      overflow: hidden
+      #structure, #info, #method-of-application, #rating, #reviews, #in-other-city, #in-other-country, #on-other-language
+        padding: 12px 20px
+        display: flex
+        gap: 15px
+        cursor: pointer
+        img
+          display: flex
+          align-items: center
+          justify-content: center
+          height: 20px
+          width: 20px
+        &:hover
+          background: #e8e8e8
+        &:active
+          box-shadow: 0px 10px 10px #b8b8b8 inset
+        &.active
+          box-shadow: 0px 10px 10px #b8b8b8 inset
+          background: #e8e8e8
+
+    .product-info_rightbar
+      display: flex
+      background: white
+      width: 100%
+      padding: 20px
+      border-radius: 5px
+      font-size: 15px
+      transition: all .4s
+      ul
+        margin: 0
+        padding: 0
+        display: flex
+        gap: 20px
+        flex-direction: column
+        list-style-type: none
+
+      #structure
+        width: 100%
+        ul
+          padding: 0
+          margin: 0
+
+      #info
+        ul
+          gap: 20px
+          display: flex
+      #method-of-application
+
+      #rating
+        ul
+          li
+            display: flex
+            flex-direction: column
+            gap: 10px
+            img
+              width: 17px
+      #reviews
+        display: flex
+        flex-direction: column
+        width: 100%
+        gap: 10px
+        form
+          width: 100%
+          display: flex
+          gap: 10px
+          flex-direction: column
+          width: 100%
+          input
+            background: rgba(92, 90, 87, .1)
+            border: none
+            border-radius: 15px
+            height: 45px
+            outline: none
+            font-size: 16px
+            font-family: "OpenSans"
+            text-align: left
+            padding: 0 20px
+            width: calc( 100% - 40px )
+          textarea
+            resize: none
+            background: rgba(92, 90, 87, .1)
+            border: none
+            border-radius: 15px
+            height: 100px
+            text-align: left
+            outline: none
+            font-size: 16px
+            padding: 20px
+            width: calc( 100% - 40px )
+
+          button
+            background: rgba(255, 255, 255, .1)
+            border-radius: 15px
+            height: 50px
+            border: none
+            box-shadow: 0px 5px 10px #d8d8d8
+            outline: none
+            font-size: 16px
+            cursor: pointer
+            text-align: center
+            margin-top: 15px
+            width: 100%
+            &:hover
+              background: #e8e8e8
+            &:active
+              box-shadow: 0px 10px 10px #b8b8b8 inset
+            &.active
+              box-shadow: 0px 10px 10px #b8b8b8 inset
+              background: #e8e8e8
+      #in-other-city, #in-other-country
+        ul
+          li
+            display: flex
+            align-items: center
+            gap: 10px
+            a
+              &:hover
+                color: #5480cb
+            img
+              width: 15px
+      #on-other-language
+        height: 30px
+        flex-wrap: wrap
+        ul
+          li
+            display: flex
+            gap: 10px
+            img
+              width: 20px
+            a
+              &:hover
+                color: #5480cb
+                text-align: left
+
+.how-order-popup
+  transition: all .3s
+  max-width: 450px
+  background: white
+  top: 50px
+  left: 50%
+  transform: translateX(-50%)
+  transform-origin: left
+  overflow: visible
+  overflow-y: scroll
+  border-radius: 15px
+  z-index: 5
+  height: 85vh
+  position: fixed
+  padding: 20px
+  scale: 0
+  &::-webkit-scrollbar
+    display: none
+  h3
+    text-align: center
+    font-size: 22px
+  .items
+    margin-top: 20px
+    display: flex
+    flex-direction: column
+    width: 270px
+    align-items: center
+    gap: 50px
+    justify-content: center
+    .line
+      display: block
+      width: 5px
+      height: 90%
+      background: #80a1d6
+      position: absolute
+      z-index: 1
+    .item
+      background: white
+      display: flex
+      align-items: center
+      flex-direction: column
+      align-items: center
+      text-align: center
+      text-transform: uppercase
+      z-index: 2
+      img
+        width: 250px
+        object-fit: contain
+        margin-top: 10px
+
+.order-popup
+  transition: all .3s
+  width: 350px
+  background: white
+  top: 200px
+  left: 50%
+  transform: translateX(-50%)
+  transform-origin: left
+  overflow: visible
+  border-radius: 15px
+  z-index: 4
+  position: fixed
+  padding: 20px 20px 30px 20px
+  scale: 0
+  h3
+    text-align: center
+    font-size: 22px
+  form
+    width: 100%
+    margin-top: 20px
+    display: flex
+    gap: 10px
+    flex-direction: column
+    width: 100%
+    input
+      background: rgba(92, 90, 87, .1)
+      border: none
+      border-radius: 15px
+      height: 60px
+      outline: none
+      font-size: 16px
+      font-family: "OpenSans"
+      text-align: left
+      padding: 0 20px
+      width: calc( 100% - 40px )
+    button
+      border: none
+      margin-top: 10px
+      display: flex
+      align-items: center
+      justify-content: center
+      cursor: pointer
+      font-size: 16px
+      border-radius: 15px
+      color: #fff
+      text-transform: uppercase
+      font-weight: bold
+      background: #53c38b
+      height: 60px
+      &:hover
+        background: #54a27c
+      &:active
+        box-shadow: 0px 10px 10px #00000042 inset
+        background: #54a27c
+
+.top-order-btn
+  position: fixed
+  width: 250px
+  height: 80px
+  z-index: 3
+  right: 40px
+  top: 0
+  display: flex
+  align-items: center
+  justify-content: center
+  visibility: hidden
+  transition: all .4s
+  button
+    border: none
+    display: flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    font-size: 16px
+    border-radius: 15px
+    color: #fff
+    text-transform: uppercase
+    font-weight: bold
+    background: #53c38b
+    height: 70%
+    width: 100%
+    &:hover
+      background: #54a27c
+      &:active
+        box-shadow: 0px 10px 10px #00000042 inset
+        background: #54a27c
+
+.pay-and-delivery
+  background: white
+  margin-top: 20px
+  border-radius: 15px
+  width: calc( 100% - 40px )
+  padding: 20px
+
+.contacts
+  background: white
+  margin-top: 20px
+  border-radius: 15px
+  width: calc( 100% - 40px )
+  padding: 20px
